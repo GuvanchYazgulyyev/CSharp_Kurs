@@ -1,9 +1,19 @@
-﻿namespace CSharp_Kurs;
+﻿using CSharp_Kurs.Kurslar.Ders2;
+
+namespace CSharp_Kurs;
 
 public class Program
 {
     public static void Main(string[] args)
     {
+        //Ders2.Ders2_Data();
+        Ders2.BalHasapla();
+    }
+
+    #region Ders1 
+    public static void Main2(string[] args)
+    {
+  
         // Types
         // int , double, decimal, bool, string, char,
         int a = 2;
@@ -82,6 +92,8 @@ public class Program
     {
         Console.WriteLine(ad);
     }
+
+    #endregion
 
 }
 
