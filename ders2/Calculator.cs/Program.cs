@@ -1,128 +1,102 @@
-﻿using System;
+﻿// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
 
-public class Calculator
+using System;
+
+public class Calculator 
 {
-    // Programmanyň esasy bölümi, iş şu ýerden başlaýar
     public static void Main(string[] args)
     {
-        Console.WriteLine("---------------------------------------------");
-        Console.WriteLine("Ýönekeý hasaplaýjy");
-        Console.WriteLine("---------------------------------------------");
+        Console.WriteLine("---------------------");
+        Console.WriteLine("Yonekey kalkulyator!");
+        Console.WriteLine("---------------------");
+        
+        bool continueCalculating = true;
 
-        // Täzeden hasaplamak üçin açar (bool: dogry/ýalňyş)
-        bool runAgain = true;
-
-        // Ulanyjy 'exit' basýança amallary gaýtalamak
-        while (runAgain)
+        while (continueCalculating) // Main loop runs until 'continueCalculating' is set to false
         {
-            Console.WriteLine("\nBirinji sany giriz ýa-da ('exit') bas:");
-            string input1 = Console.ReadLine();
-
-            if (input1.ToLower() == "exit")
+            try 
             {
-                break;
+                // --- Input 1 ---
+                Console.WriteLine("\nBirinji sany girizin ('exit' basyp bilersiniz):");
+                string input1String = Console.ReadLine()?.ToLower();
+                
+                if (input1String == "exit")
+                {
+                    continueCalculating = false;
+                    Console.WriteLine("Kalkulyator yatyrdy. Sagbol!");
+                    break;
+                }
+
+                // --- Operation ---
+                Console.WriteLine("Amallary girizi: ('+','-','*','/') yada 'exit' basyn:");
+                string operation = Console.ReadLine()?.ToLower();
+                
+                if (operation == "exit")
+                {
+                    continueCalculating = false;
+                    Console.WriteLine("Kalkulyator yatyrdy. Sagbol!");
+                    break;
+                }
+
+                // --- Input 2 ---
+                Console.WriteLine("Ikinji sany girizin ('exit' basyp bilersiniz):");
+                string input2String = Console.ReadLine()?.ToLower();
+                
+                if (input2String == "exit")
+                {
+                    continueCalculating = false;
+                    Console.WriteLine("Kalkulyator yatyrdy. Sagbol!");
+                    break;
+                }
+                
+                // --- Parsing Section ---
+                // If we reach here, we know the inputs are not "exit", so we can parse them.
+                int input1 = int.Parse(input1String!);
+                int input2 = int.Parse(input2String!);
+                
+                int result = 0; // Initialize result
+
+                // --- Calculation Section with Switch and Error Handling ---
+                switch (operation)
+                {
+                    case "+":
+                        result = input1 + input2;
+                        break;
+                    case "-":
+                        result = input1 - input2;
+                        break;
+                    case "*":
+                        result = input1 * input2;
+                        break;
+                    case "/":
+                        try
+                        {
+                            result = input1 / input2;
+                        }
+                        catch (DivideByZeroException)
+                        {
+                            Console.WriteLine("Yalnyshlyk: Nola bolup bolanok! Netije 0.");
+                            result = 0;
+                        }
+                        break;
+                    default:
+                        Console.WriteLine($"Nadogry amal '{operation}'. Gaytadan synanyshyn. Amallar ('+,-,*,/') bolmaly");
+                        continue; // Skip result display and jump to the next loop iteration
+                }
+                
+                // --- Output Section ---
+                Console.WriteLine($"Netije: {result}"); 
             }
-
-            Console.WriteLine("Amaly giriz (+, -, *, /):");
-            string operation = Console.ReadLine();
-
-            Console.WriteLine("Ikinji sany giriz:");
-            string input2 = Console.ReadLine();
-
-            // Sanlary we netijäni saklaýan üýtgeýjiler
-            double num1 = 0;
-            double num2 = 0;
-            double result = 0;
-            bool success = true;
-
-
-            // --- GIRIŞ Barlagy: San däl-de, harp girizilen bolsa barlamak ---
-            // TryParse girizilen teksti sana öwürýär. Eger şowsuz bolsa, 'success' ýalňyş bolýar.
-            bool input1Valid = double.TryParse(input1, out num1);
-            bool input2Valid = double.TryParse(input2, out num2);
-
-            // Eger sanlar dogry däl bolsa, ýalňyşlyk baradaky maglumaty görkezmeli
-            if (!input1Valid || !input2Valid)
+            catch (FormatException)
             {
-                Console.WriteLine("\n--- YALNYS TUTULDY (San Formaty) ---");
-                Console.WriteLine("Ýalňyşlyk: Girizilenler san däl. Haýyş, dogry sanlary giriziň.");
-                Console.WriteLine("--------------------------------------------");
-                success = false;
+                Console.WriteLine("yalnyshlyk : Diñe san girizmeli. Gaýtadan synanyshyn.");
             }
-
-            // --- TRY BLOKY: Ýalňyşlyk çykyp biljek kody synap görmek (diňe hasaplama) ---
-            // Diňe sanlar dogry girizilen bolsa, hasaplaýjy bloga gir
-            if (success)
+            catch (Exception ex)
             {
-                try
-                {
-                    // Amaly (operatory) ýerine ýetirmek
-                    switch (operation)
-                    {
-                        case "+":
-                            result = num1 + num2;
-                            break;
-
-                        case "-":
-                            result = num1 - num2;
-                            break;
-
-                        case "*":
-                            result = num1 * num2;
-                            break;
-
-                        case "/":
-                            if (num2 == 0)
-                            {
-                                throw new DivideByZeroException("Nola bölüp bolmaýar! Başga san giriziň.");
-                            }
-
-                            result = num1 / num2;
-                            break;
-
-                        default:
-                            Console.WriteLine("Duýduryş: Nädogry amal girizildi. Haýyş, +, -, *, ýa-da / ulanyň.");
-                            success = false;
-                            break;
-                    }
-                }
-                // --- CATCH 1: Eger Nola Bölme (DivideByZero) ýalňyşlygy çyksa, ony tutmak ---
-                catch (DivideByZeroException ex)
-                {
-                    Console.WriteLine($"Nola bölüp bolanok: {ex.Message}");
-                    success = false;
-                }
-                // --- CATCH 2: Başga garşydaş ýalňyşlyklar üçin (Umumy Ýalňyşlyk) ---
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Nätanyş ýalňyşlyk: {ex.Message}");
-                    success = false;
-                }
-                // --- FINALLY BLOKY: Ýalňyşlyk bolsada, bolmasada hökman işleýän ýer ---
-                finally
-                {
-                    Console.WriteLine("\n--- AHYRKY BLOK IŞLEDI ---");
-                    if (success)
-                    {
-                        // Netije diňe hasaplama üstünlikli bolsa görkeziler
-                        Console.WriteLine($"Netije: {num1} {operation} {num2} = {result:N2}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Ýüze çykan ýalňyşlyk sebäpli dogry netije görkezilmedi.");
-                    }
-                    Console.WriteLine("---------------------------------");
-                }
-            } // if (success) blogy ýapylýar
-
-            // Ulanyjydan dowam etmek isleýändigini soramak
-            Console.Write("\nBaşga hasaplama etmek üçin Enter basyň, ýa-da 'exit' ýazyp Enter basyň: ");
-            if (Console.ReadLine().ToLower() == "exit")
-            {
-                runAgain = false;
+                 // Catches any other unexpected errors
+                Console.WriteLine($"Name-de bolsa yalnys bar: {ex.Message}");
             }
-        } // while (runAgain) blogy ýapylýar
-
-        Console.WriteLine("\nHasaplaýjyny ulananyňyz üçin sag boluň! Sag aman galyň.");
-    } 
-} 
+        }
+    }
+}
