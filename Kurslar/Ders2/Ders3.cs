@@ -89,6 +89,4 @@
         public const double Taks = 0.20; // Bu üytgemze
         public readonly DateTime AcylysWagty = DateTime.UtcNow;
     }
-
-
 }
