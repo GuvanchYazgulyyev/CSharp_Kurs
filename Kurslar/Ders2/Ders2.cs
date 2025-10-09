@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSharp_Kurs.Kurslar.Ders2
+﻿namespace CSharp_Kurs.Kurslar.Ders2
 {
     public class Ders2
     {
