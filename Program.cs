@@ -40,7 +40,7 @@ public class Program
         else
             Console.WriteLine("Galdy!");
 
-        // Switch
+        // Switch  
         int gun = 3;
         switch (gun)
         {
