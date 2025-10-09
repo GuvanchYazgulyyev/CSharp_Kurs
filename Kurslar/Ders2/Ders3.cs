@@ -73,7 +73,6 @@
         }
         public DikDortgen(double gyrasy): this(gyrasy, gyrasy)
         {
-
         }
     }
     // C# 12 Primary Ctor
