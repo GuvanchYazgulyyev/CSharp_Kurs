@@ -4,7 +4,7 @@ namespace CSharp_Kurs.Kurslar.Ders2;
 public class Calculator
 {
     // Program.cs faýlyndan çagyrylýan esasy funksiýa
-    public static void RunCalculator(string[] args)
+     public static void RunCalculator(string[] args)
     {
         Console.WriteLine("--------------------");
         Console.WriteLine("Yonekey Kalkulyator!");

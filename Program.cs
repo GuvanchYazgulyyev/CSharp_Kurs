@@ -6,9 +6,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        //Ders2.Ders2_Data();
-        //Ders2.BalHasapla();
-        Mysal2.TestEt();
+         Calculator.RunCalculator(args);
     }
 
     #region Ders1 
