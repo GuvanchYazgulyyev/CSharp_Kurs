@@ -17,7 +17,7 @@ Her bir tema, **başlangyçdan orta derejä çenli** C# düşünjelerini mysalla
 ---
 
 ## 🧩 Mysal Üstünde Iş
-> “Geçen sapakdaky mysalyň kemçiliklerini çözmeli.”  
+> "Geçen sapakdaky mysalyň kemçiliklerini çözmeli."  
 > Bu ýerde öňki sapakdaky kod analiz edilip, näsaz ýerleri düzedilip, dogry logika bilen gaýtadan ýazylmaly.
 
 ---
@@ -33,3 +33,19 @@ git rebase origin/master
 git add .
 git rebase --continue
 git push origin master --force-with-lease
+```
+
+
+---
+## 🧠 Ders 4 – OOP (Object Oriented Programming) — 2
+
+Bu sapakda Obýekt Ugrundaky Programmirleme (OOP) düşünjesiniň dowamyny öwrenýäris.
+C# dilinde abstrakt synyplar, virtual / override / sealed methodlar, interfeysler, we pattern matching ýaly möhüm konseptler bilen işleýäris.
+
+
+Bu sapakda OOP (Object Oriented Programming) düşünjesiniň ileri derejeleri öwrenilýär.
+abstract, virtual, override, we sealed kimi aýratynlyklar bilen miras alyş gatnaşyklary görkezilýär.
+KargoHasaplama bazasyndan StandartKargo we TizKargo ýaly klasslar döredilip bahanyň hasaplanşy görkezilýär.
+interface arkaly dürli nalok (salgyt) syýasatlary (Nalok10, Nalok20) ýerine ýetirilýär.
+Ahyrynda SozlemKomekcileri statik klassa arkaly setirler bilen işlemek we IJsonYAzdyr interfeýsi arkaly JSON formatda ýazdyrmak görkezilýär.
+```csharp 
