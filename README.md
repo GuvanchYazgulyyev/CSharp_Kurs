@@ -49,3 +49,26 @@ KargoHasaplama bazasyndan StandartKargo we TizKargo ýaly klasslar döredilip ba
 interface arkaly dürli nalok (salgyt) syýasatlary (Nalok10, Nalok20) ýerine ýetirilýär.
 Ahyrynda SozlemKomekcileri statik klassa arkaly setirler bilen işlemek we IJsonYAzdyr interfeýsi arkaly JSON formatda ýazdyrmak görkezilýär.
 ```csharp 
+
+---csharp
+Ders 5 — Gysgaça Aýdyňlama (README)
+
+List<T>: Dinamik dizi. Add, Insert, Remove, Contains, RemoveAll, Sort, FindAll bilen işlenýär.
+
+Dictionary<TKey, TValue>: Açar-baha jübütleri; tiz gözleg/üýtgetmek üçin amatly. TryGetValue bilen howpsuz alyň.
+
+HashSet<T>: Unikal elementler; toplum amallary: IntersectWith, ExceptWith.
+
+IEnumerable / IEnumerator: Iterasiýa akymy. yield return bilen tapgyrlaýyn maglumat döretmek.
+
+Delege maşgalasy:
+
+Action<T> — giriş bar, yzyna baha ýok.
+
+Func<T1,T2,...,TResult> — giriş bar, netije gaýtarýar.
+
+Predicate<T> — bool şerti barlaýar.
+
+Bellik: RemoveAll(x => x % 2 == 1) täk sanlary aýyrýar (jüpler däl).
+---csharp
+```

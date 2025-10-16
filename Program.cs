@@ -6,13 +6,15 @@ public class Program
 {
     public static void Main(string[] args)
     {
-         Calculator.RunCalculator(args);
+        //Calculator.RunCalculator(args);
+        //Ders5.Ders_5();
+        Ders5.Dictionary_HashSet();
     }
 
     #region Ders1 
     public static void Main2(string[] args)
     {
-  
+
         // Types
         // int , double, decimal, bool, string, char,
         int a = 2;
@@ -80,14 +82,14 @@ public class Program
         Console.WriteLine(Dortgen(0));
         Yazgy();
         Yazgy("Muhammet");
-        var kisiCagyr = new Kisi("Guwanç",28);
+        var kisiCagyr = new Kisi("Guwanç", 28);
         kisiCagyr.Tanat();
         Console.WriteLine(kisiCagyr);
- 
+
     }
     // Methodlar. 
-   public static int Dortgen(int n) => n * n;
-    public static void Yazgy(string ad="Guwanç")
+    public static int Dortgen(int n) => n * n;
+    public static void Yazgy(string ad = "Guwanç")
     {
         Console.WriteLine(ad);
     }
