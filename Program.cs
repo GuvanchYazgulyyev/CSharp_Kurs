@@ -6,9 +6,12 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        //Calculator.RunCalculator(args);
+        // Calculator.RunCalculator(args);
         //Ders5.Ders_5();
-        Ders5.Dictionary_HashSet();
+        PaymentRunner.RunExample();
+
+
+      
     }
 
     #region Ders1 
