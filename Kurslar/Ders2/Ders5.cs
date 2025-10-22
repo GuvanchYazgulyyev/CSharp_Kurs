@@ -1,10 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CSharp_Kurs.Kurslar.Ders2
 {
     public class Ders5
     {
+        #region Ders 5 - Generic Collections
         //Array Methods 
         //List<T>: // Dinamik  Dizi, Muny Durmuşda in köp ulanylyar.
         // Dictionary<TKey, TValue> dictionary = new Dictionary<TKey, TValue>();// Bu gysgaça gözlemek we goşmak üçin ulanylýar.
@@ -81,6 +83,52 @@ namespace CSharp_Kurs.Kurslar.Ders2
             Predicate<int> yekemi = san => san % 2 == 1;
             print($"Toplam: {topla(2, 3)}"); // Toplam: 5
             Console.WriteLine(yekemi(5)); // True
+
+
+        }
+        #endregion
+        // Sapak 6 Generic Methods ve Generic Classes
+        public interface IDentity<TKey>
+        {
+            TKey Id { get; }
+        }
+
+        public class Depo<TKey, TEntity> where TKey : notnull where TEntity : IDentity<TKey>
+        {
+            private readonly Dictionary<TKey, TEntity> _entities = new(); // Barde Datalary saklamak üçin. Dictionary ulanylyar.
+            public void Add(TEntity e) =>
+                _entities[e.Id] = e; // Goşmak ýa-da üýtgetmek.
+            public bool Remove(TKey id) =>
+                _entities.Remove(id); // Aýyrmak
+
+            public bool TryGet(TKey id, out TEntity? entity) =>
+                _entities.TryGetValue(id, out entity); // Gözlemek
+
+        }
+
+        // Ulanylyşy
+        public record Product(string Id, string Name, decimal Price) : IDentity<string>;
+        public static void GenericClassExample()
+        {
+            var productDepo = new Depo<string, Product>();
+            productDepo.Add(new Product("P001", "Laptop", 1500m)); // Goşmak
+            productDepo.Add(new Product("P002", "Smartphone", 800m));
+            productDepo.Add(new Product("P003", "Tablet", 400m));
+            productDepo.Add(new Product("P004", "Monitor", 300m));
+            productDepo.Add(new Product("P005", "Xiomi", 350m));
+            //productDepo.Remove("P002"); // Aýyrmak
+            productDepo.TryGet("P003", out var product); // Gözlemek
+            Console.WriteLine($"Gözlenen Data: {product}");
+        
+            foreach(var id  in new[] {"P001", "P002", "P003", "P004", "P005" })
+            {
+                if (productDepo.TryGet(id, out var p))
+                    Console.WriteLine($"Ürün ID: {p.Id}, Name: {p.Name}, Price: {p.Price:C}");
+                else
+                    Console.WriteLine($"Ürün ID: {id} tapylmady.");
+
+            }
+
 
 
         }
