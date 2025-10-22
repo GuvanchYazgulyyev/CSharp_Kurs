@@ -8,7 +8,10 @@ public class Program
     {
         // Calculator.RunCalculator(args);
         //Ders5.Ders_5();
-        PaymentRunner.RunExample();
+        // PaymentRunner.RunExample();
+        // Collections.RunListDemo();
+        // 2. Dictionary<TKey, TValue> Demosyny Çagyrmak (Ulanyjy Profilleri)
+        Collections.RunDictionary();
 
 
       
