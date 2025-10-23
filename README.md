@@ -72,3 +72,7 @@ Predicate<T> — bool şerti barlaýar.
 Bellik: RemoveAll(x => x % 2 == 1) täk sanlary aýyrýar (jüpler däl).
 ---csharp
 ```
+
+---
+## 🧠 Sapak 6 Generic Methods ve Generic Classes
+
