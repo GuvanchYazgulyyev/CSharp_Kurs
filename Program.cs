@@ -6,7 +6,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        //Calculator.RunCalculator(args);
+        // Calculator.RunCalculator(args);
         //Ders5.Ders_5();
        // Ders5.Dictionary_HashSet();
         Ders5.GenericClassExample();
