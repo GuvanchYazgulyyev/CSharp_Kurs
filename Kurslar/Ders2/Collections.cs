@@ -4,6 +4,26 @@ namespace CSharp_Kurs.Kurslar.Ders2
     public class Collections
     {
         //Collections samples 
+
+       public static void StackExample()
+        {
+            Stack<string> browserHistory = new Stack<string>();
+            Console.WriteLine("Navigateing the pages");
+            //to add to stack we use push LIFO
+            browserHistory.Push("google.com");
+            Console.WriteLine($"\tPushed:google.com");
+            browserHistory.Push("learn.microsoft.com");
+            Console.WriteLine("\tPushed:earn.microsoft.com");
+            //to get top item without removing it Peek
+            Console.WriteLine($"The most recently visited page {browserHistory.Peek}");
+            //It peeks out but doest change 
+            //lets get last item and remove it from the stack pop
+            Console.WriteLine("Using the back button");
+            string lastPage = browserHistory.Pop();
+            Console.WriteLine($"\tPopped :{lastPage}");
+            Console.WriteLine($"\nCurrently viewing:{browserHistory.Peek()}");
+
+        }
        public static void RunListDemo()
        {
            //lets create students list with their grades 
