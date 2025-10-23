@@ -8,8 +8,7 @@ public class Program
     {
         // Calculator.RunCalculator(args);
         //Ders5.Ders_5();
-       // Ders5.Dictionary_HashSet();
-        Ders5.GenericClassExample();
+
     }
 
     #region Ders1 
