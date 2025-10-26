@@ -1,5 +1,5 @@
 ﻿using CSharp_Kurs.Kurslar.Ders2;
-
+using CSharp_Kurs.Kurslar.Delegates;
 namespace CSharp_Kurs;
 
 public class Program
@@ -11,7 +11,7 @@ public class Program
         //Ders7.Operations();
         Ders7.OparationDers8();
 
-
+        LinqC.RunLinqQueryExample();
 
     }
 
@@ -108,5 +108,3 @@ public class Program
 
 
 
-//// See https://aka.ms/new-console-template for more information
-//Console.WriteLine("Hello, World!");
