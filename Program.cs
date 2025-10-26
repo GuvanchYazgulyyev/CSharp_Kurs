@@ -8,6 +8,10 @@ public class Program
     {
         // Calculator.RunCalculator(args);
         //Ders5.Ders_5();
+        //Ders7.Operations();
+        Ders7.OparationDers8();
+
+
 
     }
 
