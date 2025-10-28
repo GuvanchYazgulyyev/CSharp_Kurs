@@ -8,15 +8,16 @@ public class Program
     {
         // Calculator.RunCalculator(args);
         //Ders5.Ders_5();
-/* <<<<<<< HEAD
-        //Ders7.Operations();
-        Ders7.OparationDers8();
+        /* <<<<<<< HEAD
+                //Ders7.Operations();
+                Ders7.OparationDers8();
 
-        LinqC.RunLinqQueryExample();
-=======
-        // LinqC.RunLinqQueryExample();
-        FilmProcessor.RunAndFormatQuery();
->>>>>>> 839d3a7 (Film Proccessor added with LINQ) */
+                LinqC.RunLinqQueryExample();
+        =======
+                // LinqC.RunLinqQueryExample();
+                FilmProcessor.RunAndFormatQuery();
+        >>>>>>> 839d3a7 (Film Proccessor added with LINQ) */
+        /* DataProvider.CalculateTotalCityRevenue(); */
 
     }
 
