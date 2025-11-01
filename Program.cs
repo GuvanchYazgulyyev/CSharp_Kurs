@@ -19,6 +19,8 @@ public class Program
         >>>>>>> 839d3a7 (Film Proccessor added with LINQ) */
         /* DataProvider.CalculateTotalCityRevenue(); */
 
+        /* SupportProcessor.RunSupportProcess(); */
+
     }
 
     #region Ders1 

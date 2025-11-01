@@ -76,3 +76,5 @@ Bellik: RemoveAll(x => x % 2 == 1) täk sanlary aýyrýar (jüpler däl).
 ---
 ## 🧠 Sapak 6 Generic Methods ve Generic Classes
 
+## Data Provider Film processor and SupportProcessor are added related to tasks 
+
