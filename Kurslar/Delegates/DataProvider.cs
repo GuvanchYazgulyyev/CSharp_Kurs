@@ -10,7 +10,7 @@ namespace CSharp_Kurs.Kurslar.Delegates
     // Define the order structure (Corrected 'CostumerId' to 'CustomerId')
     public record Order(int CustomerId, double Amount);
 
-    public static class DataProvider // Made static to hold static data
+    public  class DataProvider // Made static to hold static data
     {
         // Client dictionary (Dictionary: Id -> Customer)
         public static Dictionary<int, Customer> Customers { get; } = new Dictionary<int, Customer>

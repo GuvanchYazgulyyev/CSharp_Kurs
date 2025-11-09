@@ -1,10 +1,11 @@
 ﻿using CSharp_Kurs.Kurslar.Ders2;
 using CSharp_Kurs.Kurslar.Delegates;
+using System.Threading.Tasks;
 namespace CSharp_Kurs;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         // Calculator.RunCalculator(args);
         //Ders5.Ders_5();
@@ -14,13 +15,18 @@ public class Program
 
                 LinqC.RunLinqQueryExample();
         =======
-                // LinqC.RunLinqQueryExample();
+              LinqC.RunLinqQueryExample();
                 FilmProcessor.RunAndFormatQuery();
         >>>>>>> 839d3a7 (Film Proccessor added with LINQ) */
         /* DataProvider.CalculateTotalCityRevenue(); */
 
         /* SupportProcessor.RunSupportProcess(); */
+        //FilmProcessor.RunAndFormatQuery();
+        //DataProvider.CalculateTotalCityRevenue();
+        //SupportProcessor.RunSupportProcess();
 
+        // Ders8.OperationData();
+        await Ders9.OperationLinq();
     }
 
     #region Ders1 

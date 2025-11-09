@@ -1,0 +1,86 @@
+C# Mysallar. 
+Ulanyljak maglumat modeli!
+
+public class Musderi
+{
+    public int Id { get; set; }
+    public string Ady { get; set; }
+    public string Seher { get; set; }
+    public DateTime HasabaAlnanSene { get; set; }
+}
+
+public class Haryt
+{
+    public int Id { get; set; }
+    public string Ady { get; set; }
+    public string Kategoriya { get; set; }
+    public decimal Baha { get; set; }
+    public bool StokdaBar { get; set; }
+}
+
+public class Sargyt
+{
+    public int Id { get; set; }
+    public int MusderiId { get; set; }
+    public DateTime Sene { get; set; }
+    public List<SargytItem> Items { get; set; } = new();
+}
+
+public class SargytItem
+{
+    public int SargytId { get; set; }
+    public int HarytId { get; set; }
+    public int Mukdar { get; set; }
+    public decimal BirimBahasy { get; set; }
+}
+
+
+
+1 — Filtrleme, tertipleme, saýlama
+Ankara şäherindäki müşderileri tap. Ady boýunça A→Z tertiple. Netijeden ilk 5 sanysyny al. Her setiirinde diňe Ady we Şäher görünsün.
+
+
+
+2 — Toparla we hasapla (GroupBy, agregatlar)
+
+Harytlary Kategoriýa boýunça toparla. Her kategoriýa üçin aşakdakylary hasapla:
+
+Haryt sany, 2) Iň pes baha, 3) Iň ýokary baha, 4) Ortaça baha.
+Netijäni ortaça baha göra ulydan-kiçi tertiple.
+
+
+
+3 — Join + hasaplama + tertipleme
+
+2025-01-01 senesinden bäri edilen sargytlary al. Sargytlaryň her biri üçin müşderiniň Ady we sargydyň JemiBahasy (her SargytItem üçin Mukdar * BirimBahasy-nyň jemi) görkezilsin. JemiBahasy > 5000 bolanlar galsyn, netijäni JemiBahasy boýunça ulydan-kiçi tertiple, ilk 10 sanysyny görkez.
+
+
+
+4 — Left-like barlag (Any/All, wagt aralygy)
+
+Stokda ýok (StokdaBar == false) bolan harytlaryň soňky 90 günüň içinde hiç bir sargytda ulanylmandygyny barla. Diňe ulanylmadyk harytlaryň adyny sanaw edip döndür.
+
+Talaplar:
+
+Wagt çägi: DateTime.Today.AddDays(-90)-dan şu güne çenli.
+
+Any bilen barla: şol aralykda SargytItem.HarytId == h.Id bar-ýok?
+
+Ulanylmadyk harytlar üçin şertiň tersini al (!Any(...)).
+
+Diňe Ady döndür.
+
+
+
+
+
+
+5 — Kategoriýa boýunça aýlyk girdeji paneli (SelectMany, GroupBy, kalendar dolduryş)
+
+Soňky 6 aýyň içinde her bir Kategoriýa üçin aýlyk umumy girdejini çykaryň. Aýlaryň birinde şol kategoriýadan sargyt bolmasa-da, şol aý 0 diýip görkezilmeli. Netijäni kategoriýa → aý tertibinde beriň.
+
+
+6 — Müşderi segmentasiýasy + reýting + sahypalaşdyrma (Windowing-like tertip, ölçegler, Skip/Take)
+Her müşderi üçin şu günki günden yzlaryna 365 gün aralykda aşakdaky görkezijileri hasaplaň we müşderini segment bilen belläň. Soňra jemi töleg boýunça ulydan-kiçi tertipleýärsiňiz, deň bolan ýagdaýynda sargyt sany boýunça ulydan-kiçi. Netijäni sahypalaşdyryň: berlen page we pageSize boýunça Skip/Take ulanyp bölekleýin çykaryň.
+
+
